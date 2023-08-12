@@ -2,35 +2,43 @@
     "version": "1",
     "inputs": [
         {
-            "name": "prompt",
-            "description": "The prompt to provide to the model.",
+            "name": "system",
+            "description": "The system prompt to use.",
             "type": "string",
             "required": true,
-            "default": "Tell me about AI"
+            "default": "You are an helpful assistant who has access to the following functions to help the user, you can use the functions if needed-\n{\n\t\"name\": \"plan_holiday\",\n\t\"description\": \"Plan a holiday based on user's interests\",\n\t\"parameters\": {\n\t\t\"type\": \"object\",\n\t\t\"properties\": {\n\t\t\t\"destination\": {\n\t\t\t\t\"type\": \"string\",\n\t\t\t\t\"description\": \"The destination of the holiday\"\n\t\t\t},\n\t\t\t\"duration\": {\n\t\t\t\t\"type\": \"integer\",\n\t\t\t\t\"description\": \"The duration of the trip in holiday\"\n\t\t\t}\n\t\t},\n\t\t\"required\": [\n\t\t\t\"destination\",\n\t\t\t\"duration\"\n\t\t]\n\t}\n}"
+        },
+        {
+            "name": "prompt",
+            "description": "The prompt to feed to the model.",
+            "type": "string",
+            "required": true,
+            "default": "I am thinking of having a 10 day long vacation in Greece, can you help me plan it?"
         },
         {
             "name": "temperature",
-            "description": "Temperature setting for the model.",
+            "description": "The temperature to use.",
             "type": "number",
             "default": 0.5
-            "min": 0,
-            "max": 1
+        },
+        {
+            "name": "top_p",
+            "description": "The top_p to use.",
+            "type": "number",
+            "default": 0.95
         },
         {
             "name": "max_new_tokens",
-            "description": "Maximum tokens which are outputted by the model.",
+            "description": "Generate at most this many new tokens in the response.",
             "type": "number",
             "default": 100
         }
     ],
-    "examples": [
-        {
-            "inputs": {
-                "instruction": "Tell me about AI"
-            },
-            "output": {
-                "outputs": "<s> Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n    ### Instruction:\n    Tell me about AI\n\n    ### Response:\n     AI stands for Artificial Intelligence, which is the simulation of human intelligence processes by machines, especially computer systems. These processes include learning, reasoning, and self-correction. AI systems are designed to perform tasks that typically require human intelligence, such as visual perception, speech recognition, decision-making, and language translation. They can be trained on large datasets to recognize patterns and make predictions, and they can learn from their mistakes to improve their performance over time. AI is used in various fields, including healthcare, finance, transportation, and entertainment, to automate tasks, enhance efficiency, and make better decisions. However, there are also ethical concerns surrounding the use of AI, such as privacy, bias, and job displacement.</s>"
-            }
+    "output": {
+        "result": {
+            "type": "string",
+            "description": "The generated text.",
+            "path": "outputs"
         }
-    ]
+    }
 }
