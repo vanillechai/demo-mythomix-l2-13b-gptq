@@ -34,11 +34,14 @@
             "default": 100
         }
     ],
-    "output": {
-        "result": {
-            "type": "string",
-            "description": "The generated text.",
-            "path": "outputs"
+    "examples": [
+        {
+            "inputs": {
+                "instruction": "Tell me about AI"
+            },
+            "output": {
+                "outputs": "<s> Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n    ### Instruction:\n    Tell me about AI\n\n    ### Response:\n     AI stands for Artificial Intelligence, which is the simulation of human intelligence processes by machines, especially computer systems. These processes include learning, reasoning, and self-correction. AI systems are designed to perform tasks that typically require human intelligence, such as visual perception, speech recognition, decision-making, and language translation. They can be trained on large datasets to recognize patterns and make predictions, and they can learn from their mistakes to improve their performance over time. AI is used in various fields, including healthcare, finance, transportation, and entertainment, to automate tasks, enhance efficiency, and make better decisions. However, there are also ethical concerns surrounding the use of AI, such as privacy, bias, and job displacement.</s>"
+            }
         }
-    }
+    ]
 }
